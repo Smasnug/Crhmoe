@@ -17,11 +17,11 @@ class MainWindow(QMainWindow):
         super(MainWindow, self).__init__(*args, **kwargs)
  
         def about_dialog():
-            QMessageBox.about(self, f"Crhmoe", "Version v2023.05.29 running on {}".format(system))
+            QMessageBox.about(self, f"Crhmoe", "Version v2023.05.29.1 running on {}".format(system))
  
         self.browser = QWebEngineView()
  
-        self.browser.setUrl(QUrl("http://duckduckgo.com"))
+        self.browser.setUrl(QUrl("http://yahoo.com"))
  
         oldAgent = self.browser.page().profile().httpUserAgent()
         userAgent = oldAgent.replace("QtWebEngine/{}".format(qwebengver), "Crhmoe/2023.05.29")
@@ -93,12 +93,12 @@ class MainWindow(QMainWindow):
  
  
     def navigate_home(self):
-        self.browser.setUrl(QUrl("https://duckduckgo.com"))
+        self.browser.setUrl(QUrl("https://yahoo.com"))
  
     def navigate_to_url(self):
         q = QUrl(self.urlbar.text())
         if q.scheme() == "":
-            full = "http://duckduckgo.com/?q=" + self.urlbar.text()
+            full = "https://search.yahoo.com/search?p=" + self.urlbar.text()
             self.browser.setUrl(QUrl(full))
         else:
             self.browser.setUrl(q)
