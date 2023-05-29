@@ -17,14 +17,14 @@ class MainWindow(QMainWindow):
         super(MainWindow, self).__init__(*args, **kwargs)
  
         def about_dialog():
-            QMessageBox.about(self, f"Catalyst5", "Version v5.0.0 Alpha running on {}".format(system))
+            QMessageBox.about(self, f"Crhmoe", "Version v2023.05.29 running on {}".format(system))
  
         self.browser = QWebEngineView()
  
         self.browser.setUrl(QUrl("http://duckduckgo.com"))
  
         oldAgent = self.browser.page().profile().httpUserAgent()
-        userAgent = oldAgent.replace("QtWebEngine/{}".format(qwebengver), "Catalyst/5.0.0")
+        userAgent = oldAgent.replace("QtWebEngine/{}".format(qwebengver), "Crhmoe/2023.05.29")
         self.browser.page().profile().setHttpUserAgent(userAgent)
 
         self.browser.urlChanged.connect(self.update_urlbar)
@@ -89,7 +89,7 @@ class MainWindow(QMainWindow):
  
     def update_title(self):
         title = self.browser.page().title()
-        self.setWindowTitle("% s - Catalyst5" % title)
+        self.setWindowTitle("% s - Crhmoe" % title)
  
  
     def navigate_home(self):
@@ -109,7 +109,7 @@ class MainWindow(QMainWindow):
  
 app = QApplication(sys.argv)
  
-app.setApplicationName("Catalyst5")
+app.setApplicationName("Crhmoe")
  
 window = MainWindow()
  
